@@ -19,24 +19,20 @@ weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const city = search.value
     infoBar.textContent = 'Loading...'
-    fetch(`https://api.apixu.com/v1/forecast.json?key=60fea3afb81d4525af5191836192307&q=${city}`).then((response) => {
-        if (response.status === 400) {
-            infoBar.textContent = 'Location not found. Please use a valid city or zip code.'
-        } else {
-            response.json().then((data) => {
-                infoBar.textContent = ''
-                weatherIcon.setAttribute('src', data.current.condition.icon)
-                temperature.textContent = data.current.temp_f + '°F'
-                myLocation.textContent = data.location.name + ', ' + data.location.region
-                condition.textContent = data.current.condition.text
-                forecast.textContent = data.forecast.forecastday[0].day.condition.text
-                humidity.textContent = data.current.humidity + '%'
-                highTemp.textContent = data.forecast.forecastday[0].day.maxtemp_f + '°F'
-                lowTemp.textContent = data.forecast.forecastday[0].day.mintemp_f + '°F'
-                sunrise.textContent = data.forecast.forecastday[0].astro.sunrise
-                sunset.textContent = data.forecast.forecastday[0].astro.sunset
-                weatherInfoSection.classList.remove('hidden')
-            })
-        }
-    })
+    fetch(`http://api.weatherstack.com/current?access_key=199144c0e4f17bb3ac394f8a2cb1597c&query=${city}&units=f&forecast_days=1`)
+        .then((response) => {
+            if (response.status === 400) {
+                infoBar.textContent = 'Location not found. Please use a valid city or zip code.'
+            } else {
+                response.json().then((data) => {
+                    infoBar.textContent = ''
+                    weatherIcon.setAttribute('src', data.current.weather_icons[0])
+                    temperature.textContent = data.current.temperature + '°F'
+                    myLocation.textContent = data.location.name + ', ' + data.location.region
+                    condition.textContent = data.current.weather_descriptions
+                    humidity.textContent = data.current.humidity + '%'
+                    weatherInfoSection.classList.remove('hidden')
+                })
+            }
+        })
 })
