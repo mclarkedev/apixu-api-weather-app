@@ -33,7 +33,6 @@ a:focus {
     width: 100vw;
     height: 100vh;
 
-    /* Header */
     header {
         display: flex;
         justify-content: center;
@@ -48,7 +47,6 @@ a:focus {
         }
     }
 
-    /* Footer */
     footer {
         position: absolute;
         bottom: 0;
@@ -65,7 +63,6 @@ a:focus {
         }
     }
     
-    /* Form area */
     form {
         text-align: center;
         margin-top: 5vh;
@@ -118,7 +115,6 @@ a:focus {
         }
     }
     
-    /* Info bar */
     .info-bar {
         width: 450px;
         height: 30px;
@@ -130,25 +126,19 @@ a:focus {
     }
 
     .weather-info-section {
-        display: flex;
-        flex-wrap: wrap;
         width: 90vw;
-        justify-content: center;
-        align-content: center;
         margin: 3vh auto;
-
-        .col {
-            background-color: #ffffff;
-            flex-basis: 350px;
-            margin: 1rem 1rem;
-            height: 310px;
-            border: 1px solid #f0efef;
-            border-radius: 5px;
-            position: relative;
-            display: block;
-            text-align: center;
-            box-shadow: 3px 3px 5px 6px #ccc;
-            white-space: nowrap;
+        background-color: #ffffff;
+        flex-basis: 350px;
+        margin: 1rem 1rem;
+        height: 310px;
+        border: 1px solid #f0efef;
+        border-radius: 5px;
+        position: relative;
+        display: block;
+        text-align: center;
+        box-shadow: 3px 3px 5px 6px #ccc;
+        white-space: nowrap;
 
             &.basic-weather {
                 padding: 15px 5px;
@@ -190,7 +180,7 @@ a:focus {
     }
 }
 
-/* Media Queries */
+/* Media Queries */ 
 @media all and (max-width: 500px) {
     body {
         max-width: 100%;
